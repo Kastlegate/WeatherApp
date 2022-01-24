@@ -1,0 +1,29 @@
+body{
+    background: url('./warm.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    /* background-position: center; */
+    height: 100%;
+    width: 100%;
+    margin: auto;    
+}
+
+#projectContainer{
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    margin-top: 5%;
+    color: white;
+}
+
+#city{
+    font-size: 400%;
+}
+
+#searchButton{
+ 
+}
+
+#searchBar{
+
+}
