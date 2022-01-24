@@ -23,6 +23,11 @@ function getUserInput() {
     console.log(city);
   }
 
+// function to grab the current weather condition
+function updateCurrentWeatherCondition(weatherCondition){
+    document.getElementById('currentWeather').textContent = weatherCondition;
+}
+
 //function to update the name of the city and country in the dom
 function updateLocation(newCity, newCountry){
     document.getElementById('city').textContent = newCity + ", " + newCountry;
@@ -34,7 +39,32 @@ function updateLatAndLon(lat, lon){
     longitude = lon;
 }
 
-//HAS TO GO TO THE WEATHERFUNCTIONS FILE
+// function that updates the current temp
+function updateCurrentTemp(currentTemp, feelsLike){
+    document.getElementById('currentTemp').textContent = "Current temperature: " + currentTemp + "°";
+}
+
+// function that updates the feels like temp
+function updateFeelsLike(feelsLike){
+    document.getElementById('feelsLike').textContent = "Feels Like: " + feelsLike + "°";
+}
+
+// function that updates the humidity
+function updateHumidity(humidity){
+    document.getElementById('humidity').textContent = "Humidity: " + humidity + "%";
+}
+
+// function that updates the chance of rain
+function updateChanceOfRain(chanceOfRain){
+    document.getElementById('chanceOfRain').textContent = "Chance of Rain: " + chanceOfRain + "%";
+}
+
+// function that updates the wind speed
+function updateWind(wind){
+    document.getElementById('winds').textContent = "Winds: " + wind + " mph";
+}
+
+//
 async function getWeather(){
     
     //fetching the information from the Open Weather API and converting it to JSON
@@ -42,6 +72,8 @@ async function getWeather(){
     '&APPID=84a37b07c98af032cd81b74ef12a9a69&units=' + unit, {mode: 'cors'})
     const currentWeather = await weather.json();
 
+    //grabs the longitude and latitude from the weather API fetch request and updates the lat and lon variables
+    // to get fed into open Weather's One call API fetch below.
     updateLatAndLon(currentWeather.coord.lat, currentWeather.coord.lon);
 
     //fetching the information from the Open Weather One Call API and converting it to JSON
@@ -49,7 +81,14 @@ async function getWeather(){
     latitude + '&lon=' + longitude + '&appid=84a37b07c98af032cd81b74ef12a9a69&units=' + unit, {mode: 'cors'})
     const sevenDayForecast = await openWeatherAllAPI.json();
 
-    updateLocation(currentWeather.name, currentWeather.sys.country)
+    updateCurrentWeatherCondition(currentWeather.weather[0].description);
+    updateLocation(currentWeather.name, currentWeather.sys.country);
+    updateCurrentTemp(Math.round(currentWeather.main.temp));
+    updateFeelsLike(Math.round(currentWeather.main.feels_like));
+    updateHumidity(currentWeather.main.humidity);
+    updateChanceOfRain(sevenDayForecast.daily[0].pop);
+    updateWind(Math.round(currentWeather.wind.speed));
+    
 
     console.log(currentWeather);
     console.log(sevenDayForecast);
@@ -59,7 +98,6 @@ async function getWeather(){
     console.log("Humidity: " + currentWeather.main.humidity);
     console.log("Today's Weather: " + currentWeather.weather[0].main + ", " + currentWeather.weather[0].description)
     console.log("City: " + currentWeather.name + ". Country: " + currentWeather.sys.country)
-    // cityContainer.textContent = currentWeather.name + ', ' + currentWeather.sys.country;
     console.log("Wind: " + currentWeather.wind.speed)
     console.log("Latitude: " + latitude);
     console.log("Longitude: " + longitude);

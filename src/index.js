@@ -7,6 +7,12 @@ let projectContainer = document.createElement('div');
     projectContainer.id = 'projectContainer';
     document.body.appendChild(projectContainer);
 
+// div for the current weather condition
+let currentWeather = document.createElement('h3');
+    currentWeather.id = "currentWeather";
+    currentWeather.textContent = "";
+    projectContainer.appendChild(currentWeather);
+
 // div for the city name and country
 let city = document.createElement('h1');
     city.id = 'city'; 
@@ -29,5 +35,34 @@ let searchButton = document.createElement('submit');
 let searchBar = document.createElement('input');
     searchBar.type = 'text';
     searchBar.placeholder = 'Search for a city';
-    // searchBar.addEventListener("click", cityName)
     searchForm.appendChild(searchBar);
+
+// div for the current temp
+let currentTemp = document.createElement('div');
+    currentTemp.id = 'currentTemp';
+    currentTemp.textContent = 'Current Temp: 0°';
+    projectContainer.appendChild(currentTemp)
+
+// div for the feels like temp
+let feelsLike = document.createElement('div');
+    feelsLike.id = 'feelsLike';
+    feelsLike.textContent = 'Feels Like: 0°';
+    projectContainer.appendChild(feelsLike)
+
+// div for the humidity
+let humidity = document.createElement('div');
+    humidity.id = 'humidity';
+    humidity.textContent = 'Humidity: 0%';
+    projectContainer.appendChild(humidity)
+
+// div for the current temp
+let chanceOfRain = document.createElement('div');
+    chanceOfRain.id = 'chanceOfRain';
+    chanceOfRain.textContent = 'Chance of Rain: 0%';
+    projectContainer.appendChild(chanceOfRain)
+
+// div for the current temp
+let winds = document.createElement('div');
+winds.id = 'winds';
+winds.textContent = 'Winds: 0 mph';
+projectContainer.appendChild(winds)
