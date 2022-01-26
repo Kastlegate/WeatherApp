@@ -70,7 +70,7 @@ function updateWind(wind){
     document.getElementById('winds').textContent = "Winds: " + wind + " mph";
 }
 
-//
+
 async function getWeather(){
     
     //fetching the information from the Open Weather API and converting it to JSON
