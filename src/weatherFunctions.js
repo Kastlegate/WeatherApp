@@ -1,9 +1,12 @@
 //creating an initial city and latitude and longitude variables
-let city = 'lexington';
+let city = 'nicholasville';
 let latitude = '';
 let longitude = '';
 // variable to store celcius vs fahrenheit
 let unit = "imperial"
+let degrees = 'F'
+
+// US-KY?
 
 // function for submitting the search form
 function formSubmit(e){
@@ -12,7 +15,10 @@ function formSubmit(e){
     getWeather();
 };
 
-
+function callWeatherInitial()
+{
+    getWeather();
+}
 
 // get location from user
 function getUserInput() {    
@@ -41,12 +47,12 @@ function updateLatAndLon(lat, lon){
 
 // function that updates the current temp
 function updateCurrentTemp(currentTemp, feelsLike){
-    document.getElementById('currentTemp').textContent = "Current temperature: " + currentTemp + "°";
+    document.getElementById('currentTemp').textContent = currentTemp + "°" + degrees;
 }
 
 // function that updates the feels like temp
 function updateFeelsLike(feelsLike){
-    document.getElementById('feelsLike').textContent = "Feels Like: " + feelsLike + "°";
+    document.getElementById('feelsLike').textContent = "Feels Like: " + feelsLike + "°" + degrees;
 }
 
 // function that updates the humidity
@@ -117,4 +123,4 @@ async function getWeather(){
 
 }
 
-export {formSubmit, getWeather}
+export {formSubmit, callWeatherInitial}

@@ -18,21 +18,61 @@ body{
 }
 
 #currentWeather{
-    height: 30px;
+    margin-top: 10px;
+    font-size: 200%;
 }
 
 #city{
-    height: 70px;
-    font-size: 400%;
+font-size: 400%;
+}
+
+#searchform{
+    height: 30px;
+    width: 330;
+    display: flex;
+    flex-direction: row;
 }
 
 #searchButton{
- 
+    /* display: inline-block; */
+    height: 24px;
+    width: 30px;
+    background-color: rgba(80, 80, 80, 0.5);
+    border-top:    1px solid rgb(0, 0, 0);
+    border-right:  1px solid rgb(0, 0, 0); 
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-left: none;
+    vertical-align: middle;
+}
+
+#searchIcon{
+    margin-top: 4px; 
 }
 
 #searchBar{
-
+    height: 22px;
+    width: 300px;
+    background-color: rgba(80, 80, 80, 0.5);
+    color: white;
+    border-top:    1px solid rgb(0, 0, 0);
+    border-left:  1px solid rgb(0, 0, 0); 
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-right: none;
+    outline: none;
+    /* width: 30px; */
 }
+
+.weatherField{
+    display: flex;
+    flex-direction: row;
+}
+
+/* #currentTempIconContainer{
+    height: 30px;
+}
+#currentTempIcon{
+    margin-top: 10px;
+} */
 
 #currentTemp{
     font-size: 200%;
@@ -47,5 +87,5 @@ body{
 }
 
 #winds{
-    
+
 }
