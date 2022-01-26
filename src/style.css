@@ -1,11 +1,12 @@
 body{
-    background: url('./warm.jpg');
+    /* background: url('./warm.jpg');
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;  */
     /* background-position: center; */
     height: 100%;
     width: 100%;
-    margin: auto;    
+    margin: auto; 
+    background-color: rgb(1, 59, 97);   
 }
 
 #projectContainer{
@@ -23,7 +24,7 @@ body{
 }
 
 #city{
-font-size: 400%;
+font-size: 300%;
 }
 
 #searchform{
@@ -85,14 +86,33 @@ font-size: 400%;
     font-size: 150%;
 }
 
-#humidity{
-
+#forecastContainer{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-between;
 }
 
-#chanceOfRain{
-
+.foreCastItem{
+    
 }
 
-#winds{
+.forecastDay{
+    font-size: 120%;
+    width: fit-content;
+    margin: auto;
+}
 
+.forecastTempHigh{
+    font-size: 150%;
+    margin: auto;
+    width: fit-content;
+}
+
+.forecastTempLow{
+    font-size: 80%;
+    width: fit-content;
+    margin: auto;
 }

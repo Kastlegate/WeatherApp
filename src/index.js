@@ -50,7 +50,7 @@ let currentTemp = document.createElement('div');
     currentTemp.textContent = '0°';
     projectContainer.appendChild(currentTemp)
 
-//div container for the weather details
+//div container for the current weather details
 let weatherInfoContainer = document.createElement('div');
     weatherInfoContainer.id = 'weatherInfoContainer';
     projectContainer.appendChild(weatherInfoContainer)
@@ -118,18 +118,18 @@ let chanceOfRain = document.createElement('div');
     chanceOfRain.textContent = '0%';
     chanceOfRainGroup.appendChild(chanceOfRain)
 
-    //div for current chance of rain group
+//div for current wind speed group
 let windGroup = document.createElement('div');
     windGroup.id = 'windGroup';
     windGroup.classList.add('weatherField')
     weatherInfoContainer.appendChild(windGroup)
-//icon for chance of rain
+//icon for wind
 let windIconContainer = document.createElement('div');
     windIconContainer.id = 'windIconContainer';
     windGroup.appendChild(windIconContainer);
 let windIcon = document.createElement('i');
-    windIcon.id = 'chanceOfRainIcon';
-    windIcon.textContent = " Chance of Rain"
+    windIcon.id = 'windIcon';
+    windIcon.textContent = " Wind Speed"
     windIcon.className = 'fas fa-wind';
     windIconContainer.appendChild(windIcon)
 // div for the wind speed
