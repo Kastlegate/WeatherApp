@@ -75,19 +75,54 @@ function updateWind(wind){
     document.getElementById('winds').textContent = wind + " " + speedType;
 }
 
+// function to set the full name of the weekday
+function fullLengthNameOfDay(day){
+    let fullNameOfDay
+    switch(day){
+        case 'Mon':
+            fullNameOfDay = 'Monday '
+            return fullNameOfDay;
+            break;
+        case 'Tue':
+            fullNameOfDay = 'Tuesday '
+            return fullNameOfDay;
+            break;
+        case 'Wed':
+            fullNameOfDay = 'Wednesday '
+            return fullNameOfDay;
+            break;
+        case 'Thu':
+            fullNameOfDay = 'Thursday '
+            return fullNameOfDay;
+            break;
+        case 'Fri':
+            fullNameOfDay = 'Friday '
+            return fullNameOfDay;
+            break;
+        case 'Sat':
+            fullNameOfDay = 'Saturday '
+            return fullNameOfDay;
+            break;
+        case 'Sun':
+            fullNameOfDay = 'Sunday '
+            return fullNameOfDay;
+            break;
+       
+    }
+}
+
 // function to change the weather icon
 function selectWeatherIcon(weatherCode){
-    console.log('initial code: ' + weatherCode)
     let weatherCondition = '';
     // check for id 800 clear skies
     if (weatherCode === 800){
          weatherCondition = '800';
          console.log("800 type " + weatherCondition)
     }
-
     else{
          weatherCondition = weatherCode.toString().substring(0, 1);
     }
+
     // variable for the icon
     let icon = '';
     switch (weatherCondition){
@@ -155,7 +190,7 @@ async function dailyForecast (dailyInfo){
 
          // icon for each days forecast
          let forecastDay = document.createElement('div');
-         forecastDay.textContent = day.substring(0,3) + " ";
+         forecastDay.textContent = fullLengthNameOfDay(day.substring(0,3));
          forecastDay.classList.add('forecastDay');
          foreCastItem.appendChild(forecastDay)
 
@@ -214,24 +249,7 @@ async function getWeather(){
     updateHumidity(currentWeather.main.humidity);
     updateChanceOfRain(sevenDayForecast.daily[0].pop);
     updateWind(Math.round(currentWeather.wind.speed));
-    
-
-    console.log(currentWeather);
-    console.log(sevenDayForecast);
-    console.log("Temp: " + currentWeather.main.temp);
-    console.log("Feels Like: " + currentWeather.main.feels_like);
-    console.log("Today's Low: " + currentWeather.main.temp_min);
-    console.log("Humidity: " + currentWeather.main.humidity);
-    console.log("Today's Weather: " + currentWeather.weather[0].main + ", " + currentWeather.weather[0].description)
-    console.log("City: " + currentWeather.name + ". Country: " + currentWeather.sys.country)
-    console.log("Wind: " + currentWeather.wind.speed)
-    console.log("Latitude: " + latitude);
-    console.log("Longitude: " + longitude);
-    console.log("Chance of rain: " + sevenDayForecast.daily[0].pop);
-    console.log("Tomorrow's High: " + Math.round(sevenDayForecast.daily[1].temp.max) + "°")
-    console.log("Tomorrow's Low: " + Math.round(sevenDayForecast.daily[1].temp.min) + "°")
     dailyForecast(sevenDayForecast.daily);
-    // console.log(sevenDayForecast.alerts[0].description);
 
     let date = new Date(sevenDayForecast.daily[7].dt*1000);
     let day = date.toString();
