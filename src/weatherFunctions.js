@@ -74,7 +74,7 @@ function updateWind(wind){
 async function getWeather(){
     
     //fetching the information from the Open Weather API and converting it to JSON
-    const weather = await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + city + 
+    const weather = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + 
     '&APPID=84a37b07c98af032cd81b74ef12a9a69&units=' + unit, {mode: 'cors'})
     const currentWeather = await weather.json();
 
