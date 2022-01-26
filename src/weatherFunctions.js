@@ -5,6 +5,7 @@ let longitude = '';
 // variable to store celcius vs fahrenheit
 let unit = "imperial"
 let degrees = 'F'
+let speedType = 'mph';
 
 // US-KY?
 
@@ -52,22 +53,22 @@ function updateCurrentTemp(currentTemp, feelsLike){
 
 // function that updates the feels like temp
 function updateFeelsLike(feelsLike){
-    document.getElementById('feelsLike').textContent = "Feels Like: " + feelsLike + "°" + degrees;
+    document.getElementById('feelsLike').textContent = feelsLike + "°" + degrees;
 }
 
 // function that updates the humidity
 function updateHumidity(humidity){
-    document.getElementById('humidity').textContent = "Humidity: " + humidity + "%";
+    document.getElementById('humidity').textContent = humidity + "%";
 }
 
 // function that updates the chance of rain
 function updateChanceOfRain(chanceOfRain){
-    document.getElementById('chanceOfRain').textContent = "Chance of Rain: " + chanceOfRain + "%";
+    document.getElementById('chanceOfRain').textContent = chanceOfRain + "%";
 }
 
 // function that updates the wind speed
 function updateWind(wind){
-    document.getElementById('winds').textContent = "Winds: " + wind + " mph";
+    document.getElementById('winds').textContent = wind + " " + speedType;
 }
 
 

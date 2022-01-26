@@ -62,20 +62,27 @@ font-size: 400%;
     /* width: 30px; */
 }
 
+#currentTemp{
+    font-size: 300%;
+}
+
+#weatherInfoContainer{
+    height: fit-content;
+    width: 400px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .weatherField{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    height: 60px;
+    width: 159px;
 }
 
-/* #currentTempIconContainer{
-    height: 30px;
-}
-#currentTempIcon{
-    margin-top: 10px;
-} */
-
-#currentTemp{
-    font-size: 200%;
+.details{
+    margin-left: 25%;
+    font-size: 150%;
 }
 
 #humidity{
